@@ -81,13 +81,9 @@
     
 }
 .card-desc {
-    
-    /* height:150px; */
     padding: 5px;
 }
-/* .card-desc:hover{
-    border: 2px solid blue;
-} */
+
 
 .fltr-btn {
     margin-left: 50%;
@@ -104,6 +100,26 @@
 .fltr-btn:hover {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+
+.shimmer-comp {
+    display: flex;
+    flex-wrap: wrap;
+    
+   
+}
+
+#shimmer-cd {
+    height: 350px;
+    width: 200px;
+    margin: 5px;
+    padding: 5px;
+    background-color: #f0ffff;
+    border-radius: 15%;
+    background-size: 200% 100%;
+    background: linear-gradient(90deg, #f0fff0 25%, #f0ffff 50%, #f0fff0 75%);
+    
+}
+
 .footer{
     margin-top: 5px;
     border: 2px solid orange;

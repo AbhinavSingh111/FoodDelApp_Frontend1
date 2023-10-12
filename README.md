@@ -5,3 +5,4 @@
 * we can do 2 types of export -> default (single export) and named (multiple exports)
 * also there are 2 types of imports -> defaulet and named (put the name in {})
     * eg import {XYX} from ../../utils
+    

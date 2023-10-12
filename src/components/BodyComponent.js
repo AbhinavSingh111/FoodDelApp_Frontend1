@@ -3,10 +3,11 @@ import CardComponent from "./CardComponent";
 import data from "../../utils/mockData";
 import { LIVE_DATA_LINK } from "../../utils/constants";
 import { useState, useEffect } from "react";
+import Shimmer from "./Shimmer";
 
 const BodyComponent = ()=>{
     // using useState hook to bind data and ui
-    const [resList , setResList] = useState(data); 
+    const [resList , setResList] = useState([]); 
     useEffect(()=>{
         fetchData();
     },[]);
@@ -16,9 +17,26 @@ const BodyComponent = ()=>{
 
         const json = await livedData.json();
         setResList(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
-        console.log('json', json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+        console.log('json', json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     };
 
+    if(resList.length < 1){
+        return (
+            <>
+            <div className="body">
+                <div className="body-search">
+                    <SearchComponent />
+                </div>
+                <div className="fltr">
+                    <button className="fltr-btn">Filter Top</button>
+                </div>
+                <div className="body-card">
+                   <Shimmer /> 
+                </div>
+            </div>
+            </> 
+        )
+    }
     return (
         <>
         <div className="body">

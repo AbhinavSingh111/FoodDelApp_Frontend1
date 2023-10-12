@@ -1031,39 +1031,6 @@ const data = [
       ],
       "avgRating":"" ,
     }
-  },
-  {
-    "info": {
-      "id": "11",
-      "name": "",
-      "cloudinaryImageId": "",
-      "costForTwo": "",
-      "cuisines": [
-      ],
-      "avgRating": "",
-    }
-  },
-  {
-    "info": {
-      "id": "12",
-      "name": "",
-      "cloudinaryImageId": "",
-      "costForTwo": "",
-      "cuisines": [
-      ],
-      "avgRating": "",
-    }
-  },
-  {
-    "info": {
-      "id": "13",
-      "name": "",
-      "cloudinaryImageId": "",
-      "costForTwo": "",
-      "cuisines": [
-      ],
-      "avgRating": "",
-    }
   }
 ];
 
