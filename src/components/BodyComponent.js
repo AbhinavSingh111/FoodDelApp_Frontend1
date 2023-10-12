@@ -1,11 +1,24 @@
 import SearchComponent from "./SearchComponent";
 import CardComponent from "./CardComponent";
 import data from "../../utils/mockData";
-import { useState } from "react";
+import { LIVE_DATA_LINK } from "../../utils/constants";
+import { useState, useEffect } from "react";
 
 const BodyComponent = ()=>{
     // using useState hook to bind data and ui
     const [resList , setResList] = useState(data); 
+    useEffect(()=>{
+        fetchData();
+    },[]);
+
+    const fetchData = async ()=>{
+        const livedData = await fetch(LIVE_DATA_LINK);
+
+        const json = await livedData.json();
+        setResList(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+        console.log('json', json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
+    };
+
     return (
         <>
         <div className="body">
@@ -19,6 +32,7 @@ const BodyComponent = ()=>{
             }}>Filter Top</button>
             </div>
             <div className="body-card">
+                
                 {
                     // we should use uuid as key rather than index , react oficially tells us not to.
                     // because if the order of element gets changed because of a new addition of element
