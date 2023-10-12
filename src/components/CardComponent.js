@@ -1,12 +1,13 @@
+import { CARD_IMG_LINK } from "../../utils/constants";
+
 const CardComponent = (props)=>{
     const {resObj} = props;
     const {name , cloudinaryImageId , cuisines , avgRating , costForTwo} = resObj?.info;
-    const imgLInk = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
-
+    
     return (
     <div className="card-comp" id="card">
         <div className="res-img" id="restaraunt-image">
-            <img src={imgLInk+cloudinaryImageId} />
+            <img src={CARD_IMG_LINK+cloudinaryImageId} />
         </div>
         <div className="card-desc" id="card-description">
             <h5 id="rest-name">{name}</h5>
