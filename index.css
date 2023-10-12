@@ -21,7 +21,20 @@
     list-style: none;
     margin-right: 50px;
 }
-
+#log-btn{
+    padding: 5px;
+    width: 80px;
+    list-style: none;
+    margin-right: 50px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+#log-btn:hover{
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
 .body {
     margin-top: 5px;
     border: 2px solid orange;
@@ -42,6 +55,7 @@
     display: flex;
     text-align: center;
     border-radius: 10%;
+    cursor: pointer;
     
     
 }
@@ -50,6 +64,7 @@
     background-color: #007bff;
     color: #fff;
     border: none;
+    cursor: pointer;
 }
 #s-btn:hover {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
@@ -95,7 +110,7 @@
     background-color: #007bff;
     color: #fff;
     border: none;
-    /* cursor: pointer; */
+    cursor: pointer;
 }
 .fltr-btn:hover {
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
