@@ -1,7 +1,5 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
+import SearchComponent from "./SearchComponent";
+import CardComponent from "./CardComponent";
 
 const data = [
     {
@@ -925,44 +923,6 @@ const data = [
       }
     }
   ]
-
-const CardComponent = (props)=>{
-    const {resObj} = props;
-    const {name , cloudinaryImageId , cuisines , avgRating , costForTwo} = resObj?.info;
-    const imgLInk = "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/";
-
-    return (
-    <div className="card-comp" id="card">
-        <div className="res-img" id="restaraunt-image">
-            <img src={imgLInk+cloudinaryImageId} />
-        </div>
-        <div className="card-desc" id="card-description">
-            <h5 id="rest-name">{name}</h5>
-            <span className="other-details" id="odt">
-                <p id="cousines">{cuisines.join(", ")}</p>
-                <p id="price">{costForTwo}</p>
-                <p id="rating">{avgRating}</p>
-            </span>
-        </div>
-    </div>
-    )
-}
-
-const SearchComponent = ()=>{
-    return (
-        <div className="search">
-            <div className="search-bar">
-            <input
-                type="text"
-                placeholder="Search your food here"
-            />
-            </div>
-            <div className="search-button" >
-                <button id="s-btn">Search</button>
-            </div>
-        </div>
-    )
-}
 const BodyComponent = ()=>{
     return (
         <>
@@ -988,47 +948,4 @@ const BodyComponent = ()=>{
     )
 }
 
-const FooterComponent = ()=>{
-    return (
-    <div className="footer" id="footer-link">
-            <ul>
-                <li>Contact</li>
-                <li>Policy</li>
-                <li>FAQ</li>
-                <li>Follow</li>
-            </ul>
-        </div>
-    )
-}
-
-const HeadingComponent = ()=>{
-    return (
-    <div className="heading" id="heading">
-        <div id="heading-img">
-            <img src="https://png.pngtree.com/png-vector/20220327/ourmid/pngtree-motorcycles-cartoon-pizza-and-food-delivery-instant-online-png-image_4517042.png" />
-        </div>
-        <div className="nav-list" id="nav-bar">
-            <ul>
-                <li>Home</li>
-                <li>Services</li>
-                <li>Profile</li>
-                <li>Cart</li>
-            </ul>
-        </div>
-
-    </div>
-    )
-    
-}
-const AppLayout = ()=>{
-    return (
-    <div id="app">
-        <HeadingComponent />
-        <BodyComponent />
-        <FooterComponent />
-    </div>
-    )
-
-}
-
-root.render(<AppLayout />)
+export default BodyComponent;
