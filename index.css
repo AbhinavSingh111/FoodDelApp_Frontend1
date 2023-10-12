@@ -32,15 +32,27 @@
     display: inline-flex;
     text-align: center;
     margin-left: 45%;
-    padding: 5px;
+    padding: 10px 20px;
+}
+.serch-bar{
+    display: flex;
 }
 .search-button {
     margin-left: 5px;
     display: flex;
     text-align: center;
-    border: 1px solid orange;
     border-radius: 10%;
     
+    
+}
+#s-btn {    
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+}
+#s-btn:hover {
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
 .body-card{
     display: flex;
@@ -77,6 +89,21 @@
     border: 2px solid blue;
 } */
 
+.fltr-btn {
+    margin-left: 50%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    /* border-radius: 10%; */
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    /* cursor: pointer; */
+}
+.fltr-btn:hover {
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
 .footer{
     margin-top: 5px;
     border: 2px solid orange;
