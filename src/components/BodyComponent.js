@@ -8,16 +8,16 @@ import Shimmer from "./Shimmer";
 const BodyComponent = ()=>{
     // using useState hook to bind data and ui
     const [resList , setResList] = useState([]); 
+    const [filteredRes , setFilteredRes] = useState([]);
     useEffect(()=>{
         fetchData();
     },[]);
-
+    console.log("body rendered");
     const fetchData = async ()=>{
         const livedData = await fetch(LIVE_DATA_LINK);
-
         const json = await livedData.json();
-        setResList(json.data.cards[4].card.card.gridElements.infoWithStyle.restaurants);
-        console.log('json', json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setResList(json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants);
+        setFilteredRes(json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants);
     };
 
     // using ternary opn
@@ -28,12 +28,12 @@ const BodyComponent = ()=>{
             <>
             <div className="body">
                 <div className="body-search">
-                    <SearchComponent />
+                    <SearchComponent setNewList={setFilteredRes} origList={resList} />
                 </div>
                 <div className="fltr">
                     <button className="fltr-btn" onClick={()=>{
                     const newList = resList.filter((res)=>res.info.avgRating>4);
-                    setResList(newList);
+                    setFilteredRes(newList);
                 }}>Filter Top</button>
                 </div>
                 <div className="body-card">
@@ -43,7 +43,7 @@ const BodyComponent = ()=>{
                         // because if the order of element gets changed because of a new addition of element
                         // or some other reason the react might get confuse as to which property beloongs
                         // to which component and this will affect performance negatively
-                        resList.map((restaurant)=>(<CardComponent key={restaurant.info.id} resObj={restaurant}/>))
+                        filteredRes.map((restaurant)=>(<CardComponent key={restaurant.info.id} resObj={restaurant}/>))
                             
                     }
                     

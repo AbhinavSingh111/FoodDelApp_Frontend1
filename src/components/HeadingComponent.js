@@ -15,12 +15,7 @@ const HeadingComponent = ()=>{
                 <li>Profile</li>
                 <li>Cart</li>
                 <button id="log-btn" onClick={()=>{
-                    if(btnText==="Login"){
-                        setBtnText("Logout")
-                    }
-                    else{
-                        setBtnText("Login")
-                    }
+                    btnText==="Login"?setBtnText("Logout"):setBtnText("Login")
                     }}>{btnText}</button>
             </ul>
         </div>
