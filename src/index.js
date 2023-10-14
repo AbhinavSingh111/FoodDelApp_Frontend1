@@ -8,7 +8,7 @@ import Contact from "./components/Contact";
 import Error from "./components/Error";
 
 // setting upp routing
-import { createBrowserRouter,RouterProvider } from "react-router-dom";
+import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -16,7 +16,7 @@ const AppLayout = ()=>{
     return (
     <div id="app">
         <HeadingComponent />
-        <BodyComponent />
+        <Outlet />
         <FooterComponent />
     </div>
     )
@@ -29,17 +29,26 @@ const AppRoute = createBrowserRouter([
     {
         path:"/",
         element:<AppLayout />,
+        // using child routing
+        children:[
+            {
+                path:"/",
+                element:<BodyComponent />,
+               
+            },
+            {
+                path:"/about",
+                element:<About />,
+               
+            },
+            {
+                path:"/contact",
+                element:<Contact />,
+            }
+        ],
         errorElement:<Error />,
     },
-    {
-        path:"/about",
-        element:<About />,
-       
-    },
-    {
-        path:"/contact",
-        element:<Contact />,
-    }
+    
 ]);
 
 root.render(<RouterProvider router={AppRoute} />)
