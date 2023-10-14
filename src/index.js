@@ -3,6 +3,11 @@ import ReactDOM from "react-dom/client";
 import BodyComponent from "./components/BodyComponent";
 import FooterComponent from "./components/FooterComponent";
 import HeadingComponent from "./components/HeadingComponent";
+import About from "./components/About";
+import Contact from "./components/Contact";
+
+// setting upp routing
+import { createBrowserRouter,RouterProvider } from "react-router-dom";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -17,4 +22,21 @@ const AppLayout = ()=>{
 
 }
 
-root.render(<AppLayout />)
+// creating routing config
+
+const AppRoute = createBrowserRouter([
+    {
+        path:"/",
+        element:<AppLayout />,
+    },
+    {
+        path:"/about",
+        element:<About />,
+    },
+    {
+        path:"/contact",
+        element:<Contact />,
+    },
+]);
+
+root.render(<RouterProvider router={AppRoute} />)
