@@ -1,5 +1,6 @@
 import { LOGO_IMG_LINK } from "../../utils/constants";
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const HeadingComponent = ()=>{
     const [btnText  , setBtnText] = useState("Login")
@@ -10,9 +11,15 @@ const HeadingComponent = ()=>{
         </div>
         <div className="nav-list" id="nav-bar">
             <ul>
-                <li>Home</li>
-                <li>Services</li>
-                <li>Profile</li>
+                <li>
+                    <Link to="/">Home</Link>
+                </li>
+                <li>
+                    <Link to="/about">About Us</Link>
+                </li>
+                <li>
+                    <Link to="/contact">Contact Us</Link>
+                    </li>
                 <li>Cart</li>
                 <button id="log-btn" onClick={()=>{
                     btnText==="Login"?setBtnText("Logout"):setBtnText("Login")
