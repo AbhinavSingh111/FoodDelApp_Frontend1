@@ -5,6 +5,7 @@ import FooterComponent from "./components/FooterComponent";
 import HeadingComponent from "./components/HeadingComponent";
 import About from "./components/About";
 import Contact from "./components/Contact";
+import Error from "./components/Error";
 
 // setting upp routing
 import { createBrowserRouter,RouterProvider } from "react-router-dom";
@@ -28,15 +29,17 @@ const AppRoute = createBrowserRouter([
     {
         path:"/",
         element:<AppLayout />,
+        errorElement:<Error />,
     },
     {
         path:"/about",
         element:<About />,
+       
     },
     {
         path:"/contact",
         element:<Contact />,
-    },
+    }
 ]);
 
 root.render(<RouterProvider router={AppRoute} />)

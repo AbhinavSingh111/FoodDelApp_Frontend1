@@ -6,3 +6,5 @@
 * also there are 2 types of imports -> defaulet and named (put the name in {})
     * eg import {XYX} from ../../utils
     
+
+* in vs code you can type 'rafce' to create functional component with export
