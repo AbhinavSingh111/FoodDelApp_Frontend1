@@ -73,6 +73,9 @@
     display: flex;
     flex-wrap: wrap;
     margin-left: 12%;
+    text-decoration: none;
+    color: inherit;
+    
 }
 .card-comp {
     
@@ -82,6 +85,10 @@
     padding: 5px;
     background-color: azure;
     border-radius: 15%;
+    text-decoration: none;
+    color: inherit;
+    
+    
    
 }
 .card-comp:hover{
@@ -97,6 +104,10 @@
 }
 .card-desc {
     padding: 5px;
+    text-decoration: none;
+    color: inherit;
+    text-decoration: none;
+    color: inherit;
 }
 
 

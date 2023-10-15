@@ -4,6 +4,7 @@ import data from "../../utils/mockData";
 import { LIVE_DATA_LINK } from "../../utils/constants";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from "react-router-dom";
 
 const BodyComponent = ()=>{
     // using useState hook to bind data and ui
@@ -43,7 +44,11 @@ const BodyComponent = ()=>{
                         // because if the order of element gets changed because of a new addition of element
                         // or some other reason the react might get confuse as to which property beloongs
                         // to which component and this will affect performance negatively
-                        filteredRes.map((restaurant)=>(<CardComponent key={restaurant.info.id} resObj={restaurant}/>))
+                        filteredRes.map((restaurant)=>(
+                        <Link key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id}>
+                            <CardComponent resObj={restaurant}/>
+                        </Link>
+                        ))
                             
                     }
                     

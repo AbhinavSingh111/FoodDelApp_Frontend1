@@ -6,6 +6,7 @@ import HeadingComponent from "./components/HeadingComponent";
 import About from "./components/About";
 import Contact from "./components/Contact";
 import Error from "./components/Error";
+import RestaurantMenu from "./components/RestaurantMenu";
 
 // setting upp routing
 import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
@@ -44,7 +45,12 @@ const AppRoute = createBrowserRouter([
             {
                 path:"/contact",
                 element:<Contact />,
-            }
+            },
+            {
+                path:"/restaurants/:resId",
+                element:<RestaurantMenu />,
+               
+            },
         ],
         errorElement:<Error />,
     },

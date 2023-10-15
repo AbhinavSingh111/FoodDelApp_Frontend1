@@ -2,7 +2,8 @@ import { CARD_IMG_LINK } from "../../utils/constants";
 
 const CardComponent = (props)=>{
     const {resObj} = props;
-    const {name , cloudinaryImageId , cuisines , avgRating , costForTwo} = resObj?.info;
+    const {name , cloudinaryImageId , cuisines , avgRating , costForTwo , rid} = resObj?.info;
+    // console.log(id)
     
     return (
     <div className="card-comp" id="card">

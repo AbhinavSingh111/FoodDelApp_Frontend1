@@ -8,3 +8,18 @@
     
 
 * in vs code you can type 'rafce' to create functional component with export
+
+data.cards.groupedCard.cardGroupMap.Regular.cards[1].card.itemCards
+
+*while mapping , the key should be in the parent jsx
+
+
+
+
+
+
+#FEATURES TO BE ADDED:
+1. Real time searching ie the moment you start typing in search box , the result start to show and when you backspace , the same happens. If you completerly erase the search parameters, the orignal result comnes back to screen.
+2. Login Logout Feature.
+3. Profile section
+4. inplement error handling in data fetching in restaurant menu
