@@ -73,8 +73,6 @@
     display: flex;
     flex-wrap: wrap;
     margin-left: 12%;
-    text-decoration: none;
-    color: inherit;
     
 }
 .card-comp {
@@ -85,8 +83,6 @@
     padding: 5px;
     background-color: azure;
     border-radius: 15%;
-    text-decoration: none;
-    color: inherit;
     
     
    
@@ -104,8 +100,6 @@
 }
 .card-desc {
     padding: 5px;
-    text-decoration: none;
-    color: inherit;
     text-decoration: none;
     color: inherit;
 }
@@ -144,6 +138,21 @@
     background-size: 200% 100%;
     background: linear-gradient(90deg, #f0fff0 25%, #f0ffff 50%, #f0fff0 75%);
     
+}
+
+#link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.team-card{
+    display: inline-block;
+    flex-wrap: wrap;
+    padding: 5px;
+    border: 1px solid orange;
+    height: 150px;
+    background-color: azure;
+    border-radius: 15%;
 }
 
 .footer{

@@ -45,7 +45,7 @@ const BodyComponent = ()=>{
                         // or some other reason the react might get confuse as to which property beloongs
                         // to which component and this will affect performance negatively
                         filteredRes.map((restaurant)=>(
-                        <Link key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id}>
+                        <Link id="link" key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id}>
                             <CardComponent resObj={restaurant}/>
                         </Link>
                         ))
