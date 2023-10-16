@@ -150,7 +150,7 @@
     flex-wrap: wrap;
     padding: 5px;
     border: 1px solid orange;
-    height: 150px;
+    /* height: 150px; */
     background-color: azure;
     border-radius: 15%;
 }
