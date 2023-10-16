@@ -5,21 +5,26 @@ import { LIVE_DATA_LINK } from "../../utils/constants";
 import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
+import useBodyComponent from "../../utils/useBodyComponent";
 
 const BodyComponent = ()=>{
     // using useState hook to bind data and ui
-    const [resList , setResList] = useState([]); 
-    const [filteredRes , setFilteredRes] = useState([]);
-    useEffect(()=>{
-        fetchData();
-    },[]);
-    console.log("body rendered");
-    const fetchData = async ()=>{
-        const livedData = await fetch(LIVE_DATA_LINK);
-        const json = await livedData.json();
-        setResList(json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants);
-        setFilteredRes(json.data.cards[5].card.card.gridElements.infoWithStyle.restaurants);
-    };
+    // const [resList , setResList] = useState([]); 
+    // const [filteredRes , setFilteredRes] = useState([]);
+    // useEffect(()=>{
+    //     fetchData();
+    // },[]);
+    // console.log("body rendered");
+    // const fetchData = async ()=>{
+    //     const liveData = await fetch(LIVE_DATA_LINK);
+    //     const json = await liveData.json();
+    //     const trimmedData = json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+    //     console.log(trimmedData);
+    //     setResList(trimmedData);
+    //     setFilteredRes(trimmedData);
+    // };
+
+    const {resList , filteredRes , setFilteredRes , setResList} = useBodyComponent();
 
     // using ternary opn
     return resList.length < 1 ?(    
