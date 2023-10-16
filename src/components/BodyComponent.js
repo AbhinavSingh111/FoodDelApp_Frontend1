@@ -40,7 +40,7 @@ const BodyComponent = ()=>{
     }
 
     // using ternary opn
-    return resList.length < 1 ?(    
+    return resList === undefined ?(    
             <Shimmer /> 
 
         ):(

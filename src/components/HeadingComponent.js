@@ -1,9 +1,11 @@
 import { LOGO_IMG_LINK } from "../../utils/constants";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../../utils/useOnlineStatus";
 
 const HeadingComponent = ()=>{
     const [btnText  , setBtnText] = useState("Login")
+    const onlineStatus = useOnlineStatus();
     return (
     <div className="heading" id="heading">
         <div id="heading-img">
@@ -11,6 +13,7 @@ const HeadingComponent = ()=>{
         </div>
         <div className="nav-list" id="nav-bar">
             <ul>
+                <li>{onlineStatus === true ? "🟢" : "🔴"}</li>
                 <li>
                     <Link to="/">Home</Link>
                 </li>
