@@ -24,14 +24,10 @@ class TeamComponent extends React.Component{
                 <button onClick={()=>{
                     this.setState({
                         count1:this.state.count1+1,
+                        count2:this.state.count2+2,
                     });
-                }}>Increase count1</button>
+                }}>Increase count</button>
                 <h2>{this.state.count2}</h2>
-                <button onClick={()=>{
-                    this.setState({
-                        count2:this.state.count2+1,
-                    });
-                }}>Increase count2</button>
                 <h3 className="team-name">{name}</h3>
                 <h4 className="team-location">{location}</h4>
                 <h4 className="team-contact">{contact}</h4>
