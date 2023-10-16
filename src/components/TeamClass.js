@@ -1,5 +1,6 @@
 import React from "react";
 import RandomClass from "./RandomClass";
+import { json } from "react-router-dom";
 
 class TeamComponent extends React.Component{
     // we use constuctor to receive props
@@ -9,40 +10,63 @@ class TeamComponent extends React.Component{
 
         // defining state vars. They are defined as an obj , sate is a reserved keyword here
         this.state = {
-            count1 : 1,
-            count2: 1,
+            userInfo : {
+                name:"",
+                location:"",
+                html_url:"",
+                avatar_url:"",
+            }
         }
-        console.log(this.props.name + " constructor")
+        
     }
+// we can make this func async to make an api call
+    async componentDidMount(){
+        const data = await fetch("https://api.github.com/users/AbhinavSingh111  ");
+        const json = await data.json();
+        this.setState({
+            userInfo : json,
+        });
+        console.log("componentDidMount");
+    };
 
-    componentDidMount(){
-        console.log(this.props.name+" component did mount")
+    componentDidUpdate(){
+        // called when the component is updated
+        console.log("componentDidUpdate");
+    };
+
+    componentWillUnmount(){
+        // called when the component is unmounted
+        // it is called when we change the component ie we move to other component
+        console.log("componentWillUnmount");
     };
 
 
 
     // we use a render method which will return a jsx
     render(){
-        console.log(this.props.name + " render")
+        
 
-        const {name , location , contact} = this.props;
+        // const {name , location , contact} = this.props;
 
         // destructuring state vars , we can use them directly also
-        const { count1 , count2} = this.state;
+        // const { count1 , count2} = this.state;
+        const {name , location , html_url , avatar_url} = this.state.userInfo;
         return(
             <div className="team-card">
-                <h2>{count1}</h2>
-                <button onClick={()=>{
+                {/* <h2>{count1}</h2> */}
+                {/* <button onClick={()=>{
                     this.setState({
                         count1:this.state.count1+1,
                         count2:this.state.count2*2,
                     });
-                }}>Increase count</button>
-                <h2>{this.state.count2}</h2>
+                }}>Increase count</button> */}
+                <div className="res-img" id="restaraunt-image">
+                    <img src={avatar_url} />
+                </div>
                 <h3 className="team-name">{name}</h3>
                 <h4 className="team-location">{location}</h4>
-                <h4 className="team-contact">{contact}</h4>
-                <RandomClass name={"nested class"}/>
+                <h4 className="team-contact">{html_url}</h4>
+                {/* <RandomClass name={"nested class"}/> */}
             </div>
             
         )
