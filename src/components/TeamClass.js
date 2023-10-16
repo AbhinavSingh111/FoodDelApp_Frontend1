@@ -1,4 +1,5 @@
 import React from "react";
+import RandomClass from "./RandomClass";
 
 class TeamComponent extends React.Component{
     // we use constuctor to receive props
@@ -8,12 +9,22 @@ class TeamComponent extends React.Component{
 
         // defining state vars. They are defined as an obj , sate is a reserved keyword here
         this.state = {
-            count1 : 0,
+            count1 : 1,
             count2: 1,
         }
+        console.log(this.props.name + " constructor")
     }
+
+    componentDidMount(){
+        console.log(this.props.name+" component did mount")
+    };
+
+
+
     // we use a render method which will return a jsx
     render(){
+        console.log(this.props.name + " render")
+
         const {name , location , contact} = this.props;
 
         // destructuring state vars , we can use them directly also
@@ -24,14 +35,16 @@ class TeamComponent extends React.Component{
                 <button onClick={()=>{
                     this.setState({
                         count1:this.state.count1+1,
-                        count2:this.state.count2+2,
+                        count2:this.state.count2*2,
                     });
                 }}>Increase count</button>
                 <h2>{this.state.count2}</h2>
                 <h3 className="team-name">{name}</h3>
                 <h4 className="team-location">{location}</h4>
                 <h4 className="team-contact">{contact}</h4>
+                <RandomClass name={"nested class"}/>
             </div>
+            
         )
     };
 
