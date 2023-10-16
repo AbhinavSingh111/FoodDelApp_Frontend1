@@ -6,6 +6,8 @@ import { useState, useEffect } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
 import useBodyComponent from "../../utils/useBodyComponent";
+import useOnlineStatus from "../../utils/useOnlineStatus";
+import NoInternet from "./NoInternet";
 
 const BodyComponent = ()=>{
     // using useState hook to bind data and ui
@@ -25,6 +27,17 @@ const BodyComponent = ()=>{
     // };
 
     const {resList , filteredRes , setFilteredRes , setResList} = useBodyComponent();
+
+    //  using custom hook to check internet connection
+    const onlineStatus = useOnlineStatus();
+    if (onlineStatus === false){
+        return (
+            <>
+            <NoInternet />
+            </>
+            
+        )
+    }
 
     // using ternary opn
     return resList.length < 1 ?(    
