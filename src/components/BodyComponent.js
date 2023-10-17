@@ -8,6 +8,7 @@ import { Link } from "react-router-dom";
 import useBodyComponent from "../../utils/useBodyComponent";
 import useOnlineStatus from "../../utils/useOnlineStatus";
 import NoInternet from "./NoInternet";
+import { FastDeliveryComponent } from "./FastDeliveryComponent";
 
 const BodyComponent = ()=>{
     // using useState hook to bind data and ui
@@ -27,6 +28,7 @@ const BodyComponent = ()=>{
     // };
 
     const {resList , filteredRes , setFilteredRes , setResList} = useBodyComponent();
+    const FastCard = FastDeliveryComponent(CardComponent);
 
     //  using custom hook to check internet connection
     const onlineStatus = useOnlineStatus();
@@ -64,7 +66,7 @@ const BodyComponent = ()=>{
                         // to which component and this will affect performance negatively
                         filteredRes.map((restaurant)=>(
                         <Link id="link" key={restaurant.info.id} to={"/restaurants/"+restaurant.info.id}>
-                            <CardComponent resObj={restaurant}/>
+                                {restaurant.info.sla.deliveryTime < 30 ? (<FastCard resObj={restaurant} />) : (<CardComponent resObj={restaurant}/>)}
                         </Link>
                         ))
                             
