@@ -52,7 +52,7 @@ class TeamComponent extends React.Component{
         // const { count1 , count2} = this.state;
         const {name , location , html_url , avatar_url} = this.state.userInfo;
         return(
-            <div className="team-card">
+            <div className="bg-pink-100 rounded-lg p-5 m-5 w-80">
                 {/* <h2>{count1}</h2> */}
                 {/* <button onClick={()=>{
                     this.setState({
@@ -61,11 +61,11 @@ class TeamComponent extends React.Component{
                     });
                 }}>Increase count</button> */}
                 <div className="res-img" id="restaraunt-image">
-                    <img src={avatar_url} />
+                    <img className="rounded-lg h-[330.900px]" src={avatar_url} />
                 </div>
-                <h3 className="team-name">{name}</h3>
-                <h4 className="team-location">{location}</h4>
-                <h4 className="team-contact">{html_url}</h4>
+                <h3 className="font-semibold text-md m-0">{name}</h3>
+                <h4 className="font-light m-0">{location}</h4>
+                <h4 className="font-light m-0">{html_url}</h4>
                 {/* <RandomClass name={"nested class"}/> */}
             </div>
             

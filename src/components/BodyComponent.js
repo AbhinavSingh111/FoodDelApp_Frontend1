@@ -49,13 +49,13 @@ const BodyComponent = ()=>{
                 <div className="body-search">
                     <SearchComponent setNewList={setFilteredRes} origList={resList} />
                 </div>
-                <div className="fltr">
-                    <button className="fltr-btn" onClick={()=>{
+                <div className="flex mt-5 item-center px-4 py-2 justify-center">
+                    <button className="px-4 py-2 mx-4 rounded-lg bg-blue-300 items-center shadow-lg hover:bg-blue-400" onClick={()=>{
                     const newList = resList.filter((res)=>res.info.avgRating>4);
                     setFilteredRes(newList);
                 }}>Filter Top</button>
                 </div>
-                <div className="body-card">
+                <div className="flex flex-wrap justify-center">
                     
                     {
                         // we should use uuid as key rather than index , react oficially tells us not to.

@@ -6,16 +6,16 @@ const CardComponent = (props)=>{
     // console.log(id)
     
     return (
-    <div className="card-comp" id="card">
-        <div className="res-img" id="restaraunt-image">
-            <img src={CARD_IMG_LINK+cloudinaryImageId} />
+    <div className="bg-pink-100 rounded-lg p-5 m-5 w-80 shadow-lg hover:bg-pink-200" id="card">
+        <div  id="restaraunt-image">
+            <img className="rounded-lg h-[330.900px]" src={CARD_IMG_LINK+cloudinaryImageId} />
         </div>
-        <div className="card-desc" id="card-description">
-            <h5 id="rest-name">{name}</h5>
+        <div className="p-5 whitespace-nowrap overflow-hidden overflow-ellipsis h-90" id="card-description">
+            <h5 className="font-bold text-md m-0" id="rest-name">{name}</h5>
             <span className="other-details" id="odt">
-                <p id="cousines">{cuisines.join(", ")}</p>
-                <p id="price">{costForTwo}</p>
-                <p id="rating">{avgRating}</p>
+                <p className="font-light m-0" id="cousines">{cuisines.join(", ")}</p>
+                <p className="font-semibold m-0" id="price">{costForTwo}</p>
+                <p className="font-semibold m-0" id="rating">{avgRating}</p>
             </span>
         </div>
     </div>
