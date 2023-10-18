@@ -1,9 +1,14 @@
 import { LOGO_IMG_LINK } from "../../utils/constants";
-import { useState } from "react";
+import { useState,useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus";
+import userContext from "../../utils/userContext";
+
 
 const HeadingComponent = ()=>{
+    // accessing context
+    const {loggedUser} = useContext(userContext);
+    
     const [btnText  , setBtnText] = useState("Login")
     const onlineStatus = useOnlineStatus();
     return (
@@ -26,7 +31,11 @@ const HeadingComponent = ()=>{
                 <li className="px-5 shadow-lg">
                     <Link to="/contact">Contact Us</Link>
                     </li>
+                
                 <li className="px-5 shadow-lg">Cart</li>
+                <li className="px-5 bg-pink-200 shadow-lg">
+                    {btnText==="Logout"?loggedUser:""}
+                </li>
                 <button className="px-4 py-2 mx-4 rounded-lg bg-blue-300 w-20 shadow-lg hover:bg-blue-400" onClick={()=>{
                     btnText==="Login"?setBtnText("Logout"):setBtnText("Login")
                     }}>{btnText}</button>

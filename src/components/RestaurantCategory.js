@@ -6,7 +6,7 @@ const RestaurantCategory = ({data , showItems , setShowIndex})=>{
     const handleClick = ()=>{
         // we will pass this state from parent comp to this comp , making it a controlled comp
     //    setShowItems(!showItems);
-       console.log("clicked")
+      
     //    this will control , if one is opened others must close
         setShowIndex();
         // this state will control , click expand and collapse

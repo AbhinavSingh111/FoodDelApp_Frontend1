@@ -7,12 +7,11 @@ import { useParams } from "react-router-dom";
 
 
 const RestaurantMenu = ()=>{
-    const [showIndex , setShowIndex] = useState(0);
+    const [showIndex , setShowIndex] = useState(null);
     const {resId} = useParams();
     // const [resInfo , setResInfo] = useState(null);
     // using custom hook to get data from
     const resInfo = useRestaurantMenu(resId);
-    console.log(resInfo)
 
     if(resInfo===null){
         return <Shimmer />
@@ -25,7 +24,7 @@ const RestaurantMenu = ()=>{
     const categories = resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c)=>c?.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
 
 
-    console.log("acc data" , categories);
+    
     // console.log('dishList', dishList)
     return(
         <>

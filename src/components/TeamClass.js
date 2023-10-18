@@ -1,8 +1,11 @@
 import React from "react";
 import RandomClass from "./RandomClass";
 import { json } from "react-router-dom";
+import userContext from "../../utils/userContext";
 
 class TeamComponent extends React.Component{
+    
+
     // we use constuctor to receive props
     constructor(props){
         // we use super method to call the constructor of the base/parent class to initialize the class with values passed
@@ -19,6 +22,8 @@ class TeamComponent extends React.Component{
         }
         
     }
+
+    
 // we can make this func async to make an api call
     async componentDidMount(){
         const data = await fetch("https://api.github.com/users/AbhinavSingh111  ");
@@ -66,6 +71,11 @@ class TeamComponent extends React.Component{
                 <h3 className="font-semibold text-md m-0">{name}</h3>
                 <h4 className="font-light m-0">{location}</h4>
                 <h4 className="font-light m-0">{html_url}</h4>
+                <userContext.Consumer>
+                    {({loggedUser})=>
+                        <h4 className="font-light m-0">User: {loggedUser}</h4>
+                    }
+                </userContext.Consumer>
                 {/* <RandomClass name={"nested class"}/> */}
             </div>
             
