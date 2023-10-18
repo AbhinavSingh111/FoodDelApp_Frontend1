@@ -3,9 +3,14 @@ import { useState,useContext } from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../../utils/useOnlineStatus";
 import userContext from "../../utils/userContext";
-
+// to use redux store data we use selector hook from redux-react
+import { useSelector } from "react-redux";
 
 const HeadingComponent = ()=>{
+    // accessing data from cart slice of redux store by subscribing to it using selector
+    const cartItems = useSelector((store)=>store.cart.items);
+    console.log(cartItems)
+    
     // accessing context
     const {loggedUser} = useContext(userContext);
     
@@ -32,7 +37,8 @@ const HeadingComponent = ()=>{
                     <Link to="/contact">Contact Us</Link>
                     </li>
                 
-                <li className="px-5 shadow-lg">Cart</li>
+                <li className="px-5 shadow-lg">Cart ({cartItems.length})</li>
+
                 <li className="px-5 bg-pink-200 shadow-lg">
                     {btnText==="Logout"?loggedUser:""}
                 </li>

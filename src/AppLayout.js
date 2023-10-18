@@ -9,9 +9,12 @@ import Error from "./components/Error";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Shimmer from "./components/Shimmer";
 import userContext from "../utils/userContext";
-
 // setting upp routing
 import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
+
+// connecting redux store to app
+import { Provider } from "react-redux";
+import appStore from "../redux/appStore";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -26,21 +29,28 @@ const AppLayout = ()=>{
     // dummy userdata fetch op
     useEffect(()=>{
         const data = {
-            loggedUser : "Abhinav",
+            loggedUser : "Sanji",
         }
         setUSerName(data.loggedUser)
     },[])
 
 
     return (
-    <div id="app">
-        {/* wrapping only head in prider , hence only head will get the passed data , rest comp will get default context data */}
-        <userContext.Provider value={{loggedUser:userName}}>
-            <HeadingComponent />
+        // we wrap the part of app we want access of redux store to\
+
+        <Provider store={appStore}>
+        <userContext.Provider value={{loggedUser:"Brooke"}}>
+            <div id="app">
+                {/* wrapping only head in prider , hence only head will get the passed data , rest comp will get default context data */}
+                <userContext.Provider value={{loggedUser:userName}}>
+                    <HeadingComponent />
+                </userContext.Provider>
+                <Outlet />
+                <FooterComponent />
+            </div>
         </userContext.Provider>
-        <Outlet />
-        <FooterComponent />
-    </div>
+        </Provider>
+        
     )
 
 }

@@ -1,5 +1,14 @@
 import { CARD_IMG_LINK } from "../../utils/constants";
+import { useDispatch } from "react-redux";
+import { addItem } from "../../redux/cartSlice";
+
 const ItemList = ({items})=>{
+    const dispatchActionAdd = useDispatch();
+    const handleAddItem = (name)=>{
+        dispatchActionAdd(addItem(name))
+        console.log("added item")
+    }
+
     return (
         <div>
             {
@@ -15,7 +24,7 @@ const ItemList = ({items})=>{
                         </div>
                         <div className="w-3/12 p-4">
                             <div className="absolute">
-                                <button className="px-2 py-1 bg-green-400 shadow-md mt-[70px] mx-10 rounded-md">Add +</button>
+                                <button className="px-2 py-1 bg-green-400 shadow-md mt-[70px] mx-10 rounded-md" onClick={()=>handleAddItem(item.card.info.name)}>Add +</button>
                             </div>
                             <img src={CARD_IMG_LINK+item.card.info.imageId} className="w-[300px]" />
                         </div>
