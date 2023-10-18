@@ -1,30 +1,18 @@
 import useRestaurantMenu from "../../utils/useRestaurantMenu";
 import Shimmer from "./Shimmer";
-import React from "react";
+import React, { useState } from "react";
 import RestaurantCategory from "./RestaurantCategory";
-
 // hook from react router dom to fetch params passed to link/path
 import { useParams } from "react-router-dom";
 
 
 const RestaurantMenu = ()=>{
-
+    const [showIndex , setShowIndex] = useState(0);
     const {resId} = useParams();
     // const [resInfo , setResInfo] = useState(null);
     // using custom hook to get data from
     const resInfo = useRestaurantMenu(resId);
     console.log(resInfo)
-    
-    // const fetchMenu = async ()=>{
-    //     const data =  await fetch(LIVE_MENU_LINK+resId);
-    //     const json = await data.json();
-    //     setResInfo(json);
-    //     // console.log(resInfo)
-    // }
-
-    // useEffect(()=>{
-    //     fetchMenu();
-    // },[]);
 
     if(resInfo===null){
         return <Shimmer />
@@ -50,7 +38,14 @@ const RestaurantMenu = ()=>{
         </div>
         <div className="text-center mt-5 p-5 ">
             {
-                categories.map((category) => (<RestaurantCategory key={category?.card?.card?.title} data={category?.card?.card}/>))
+                categories.map((category , index) => (
+
+                <RestaurantCategory key={category?.card?.card?.title} 
+                data={category?.card?.card}
+                showItems = {showIndex === index ? true : false}
+                setShowIndex = {()=>setShowIndex(index)}
+                
+                />))
             }
             {/* {
             dishList1.map((dish)=>(

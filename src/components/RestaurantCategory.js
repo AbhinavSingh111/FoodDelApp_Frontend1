@@ -1,10 +1,18 @@
 import { useState } from "react";
 import ItemList from "./ItemList";
 
-const RestaurantCategory = ({data})=>{
-    const [showItems , setShowItems] = useState(false);
+const RestaurantCategory = ({data , showItems , setShowIndex})=>{
+    const [show , setShow] = useState(false);
     const handleClick = ()=>{
-       setShowItems(!showItems);
+        // we will pass this state from parent comp to this comp , making it a controlled comp
+    //    setShowItems(!showItems);
+       console.log("clicked")
+    //    this will control , if one is opened others must close
+        setShowIndex();
+        // this state will control , click expand and collapse
+        setShow(!showItems);
+       
+        
     }
     return (
         <div className="">
@@ -19,7 +27,7 @@ const RestaurantCategory = ({data})=>{
                     </span>
                 </div>
                 {/* Accordian body */}
-                {showItems && <ItemList items={data.itemCards} />}
+                {showItems && show && <ItemList items={data.itemCards} />}
 
             </div>
             
