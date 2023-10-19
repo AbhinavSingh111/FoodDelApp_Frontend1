@@ -4,8 +4,8 @@ import { addItem } from "../../redux/cartSlice";
 
 const ItemList = ({items})=>{
     const dispatchActionAdd = useDispatch();
-    const handleAddItem = (name)=>{
-        dispatchActionAdd(addItem(name))
+    const handleAddItem = (item)=>{
+        dispatchActionAdd(addItem(item))
         console.log("added item")
     }
 
@@ -24,7 +24,7 @@ const ItemList = ({items})=>{
                         </div>
                         <div className="w-3/12 p-4">
                             <div className="absolute">
-                                <button className="px-2 py-1 bg-green-400 shadow-md mt-[70px] mx-10 rounded-md" onClick={()=>handleAddItem(item.card.info.name)}>Add +</button>
+                                <button className="px-2 py-1 bg-green-400 shadow-md mt-[70px] mx-10 rounded-md" onClick={()=>handleAddItem(item)}>Add +</button>
                             </div>
                             <img src={CARD_IMG_LINK+item.card.info.imageId} className="w-[300px]" />
                         </div>

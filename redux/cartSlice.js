@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice ,current} from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
     name :"cart",
@@ -8,13 +8,16 @@ const cartSlice = createSlice({
     reducers:{
         addItem : (state , action)=>{
             // mutating the state
-            state.items.push(action.payload);
+            state.items.push(action.payload);  
         },
         removeItem : (state , action)=>{
             state.items.pop();
         },
         clearCart : (state , action)=>{
-            state.items.length = 0;
+            console.log(current(state));
+            state.items.length = 0; 
+            // or
+            // return {items:[]} this new obj will replace the current state obj origState = {items :[]}
         },
 
     }

@@ -15,6 +15,7 @@ import { createBrowserRouter,RouterProvider,Outlet } from "react-router-dom";
 // connecting redux store to app
 import { Provider } from "react-redux";
 import appStore from "../redux/appStore";
+import Cart from "./components/Cart";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
@@ -76,6 +77,10 @@ const AppRoute = createBrowserRouter([
             {
                 path:"/contact",
                 element:<Contact />,
+            },
+            {
+                path:"/cart",
+                element:<Cart />,
             },
             {
                 path:"/grocery",
