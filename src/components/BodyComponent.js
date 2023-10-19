@@ -48,7 +48,7 @@ const BodyComponent = ()=>{
         ):(
             <>
             <div className="body">
-                <div className="body-search">
+                <div data-testid="searchInput" className="body-search">
                     <SearchComponent setNewList={setFilteredRes} origList={resList} />
                 </div>
                 <div className="flex mt-5 item-center px-4 py-2 justify-center">

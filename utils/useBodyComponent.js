@@ -11,7 +11,6 @@ const useBodyComponent = ()=>{
         const liveData = await fetch(LIVE_DATA_LINK);
         const json = await liveData.json();
         const trimmedData = json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-        console.log(trimmedData);
         setResList(trimmedData)
         setFilteredRes(trimmedData)
     }
