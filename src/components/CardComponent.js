@@ -23,4 +23,4 @@ const CardComponent = (props)=>{
     )
 }
 
-export default CardComponent;
+export default CardComponent; 

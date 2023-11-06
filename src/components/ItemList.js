@@ -6,7 +6,6 @@ const ItemList = ({items})=>{
     const dispatchActionAdd = useDispatch();
     const handleAddItem = (item)=>{
         dispatchActionAdd(addItem(item))
-        console.log("added item")
     }
 
     return (
@@ -24,9 +23,9 @@ const ItemList = ({items})=>{
                         </div>
                         <div className="w-3/12 p-4">
                             <div className="absolute">
-                                <button className="px-2 py-1 bg-green-400 shadow-md mt-[70px] mx-10 rounded-md" onClick={()=>handleAddItem(item)}>Add +</button>
+                                <button className="px-1 py-1 bg-green-400 shadow-md mt-auto mx-auto rounded-md" onClick={()=>handleAddItem(item)}>Add +</button>
                             </div>
-                            <img src={CARD_IMG_LINK+item.card.info.imageId} className="w-[300px]" />
+                            <img src={CARD_IMG_LINK+item.card.info.imageId} className="w-[300px] px-1 py-1 rounded-md" />
                         </div>
                     </div>
 
