@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import RestaurantCategory from "./RestaurantCategory";
 // hook from react router dom to fetch params passed to link/path
 import { useParams } from "react-router-dom";
+import useBodyComponent from "../../utils/useBodyComponent";
 
 
 const RestaurantMenu = ()=>{
@@ -12,6 +13,9 @@ const RestaurantMenu = ()=>{
     // const [resInfo , setResInfo] = useState(null);
     // using custom hook to get data from
     const resInfo = useRestaurantMenu(resId);
+    const {deviceWidth} = useBodyComponent();
+    // console.log(resInfo)
+    // console.log(deviceWidth)
 
     if(resInfo===null){
         return <Shimmer />
@@ -20,9 +24,16 @@ const RestaurantMenu = ()=>{
     const {restaurantId,deliveryTime} = resInfo?.data?.cards[0]?.card?.card?.info.sla;
     const dishList2 = resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards;
     const dishList1 = resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards;
+    let categories;
+    if(deviceWidth<768){
+        console.log("yes")
+        categories = resInfo?.data?.cards[3]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c)=>c?.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
+    }
+    else{
+        categories = resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c)=>c?.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
 
-    const categories = resInfo?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter((c)=>c?.card?.card?.["@type"]==="type.googleapis.com/swiggy.presentation.food.v2.ItemCategory");
-
+    }
+    console.log(categories);
 
     
     // console.log('dishList', dishList)

@@ -28,6 +28,7 @@ const BodyComponent = ()=>{
     // };
 
     const {resList , filteredRes , setFilteredRes , setResList} = useBodyComponent();
+
     const FastCard = FastDeliveryComponent(CardComponent);
 
     //  using custom hook to check internet connection
