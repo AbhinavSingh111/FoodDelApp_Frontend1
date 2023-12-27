@@ -15,7 +15,7 @@ const useBodyComponent = ()=>{
     window.addEventListener('resize', handleWindowResize);
 
 
-    const fetchData = async ()=>{
+    const fetchData = async ()=>{   
         
         if(deviceWidth < 768){
             const mobileData = await fetch("https://www.swiggy.com/mapi/homepage/getCards?lat=26.876313600000024&lng=81.02215679999999");
@@ -27,11 +27,22 @@ const useBodyComponent = ()=>{
         else{
             const liveData = await fetch(LIVE_DATA_LINK);
             const json = await liveData.json();
-            const trimmedData = json?.data?.cards[5]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
-            setResList(trimmedData)
-            setFilteredRes(trimmedData)
-        }
+
+            for (let index = 0; index < json.data.cards.length; index++) {
+                const test =
+                  json?.data?.cards[index]?.card?.card?.gridElements?.infoWithStyle
+                    ?.restaurants;
         
+                if (test === undefined) {
+                  continue;
+                }
+                setResList(test);
+                setFilteredRes(test);
+                break;
+
+            }
+        
+        }
     }
 
     useEffect(()=>{
@@ -40,5 +51,6 @@ const useBodyComponent = ()=>{
 
     return {resList,filteredRes, deviceWidth ,setFilteredRes , setResList};
 }
+
 
 export default useBodyComponent;

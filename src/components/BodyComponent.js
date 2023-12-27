@@ -54,7 +54,7 @@ const BodyComponent = ()=>{
                 </div>
                 <div className="flex mt-5 item-center px-4 py-2 justify-center">
                     <button className="px-4 py-2 mx-4 rounded-lg bg-blue-300 items-center shadow-lg hover:bg-blue-400" onClick={()=>{
-                    const newList = resList.filter((res)=>res.info.avgRating>4);
+                    const newList = resList.filter((res)=>res.info.avgRating>4.3);
                     setFilteredRes(newList);
                 }}>Filter Top</button>
                 </div>
