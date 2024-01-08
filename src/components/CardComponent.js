@@ -3,9 +3,7 @@ import { CARD_IMG_LINK } from "../../utils/constants";
 
 const CardComponent = (props)=>{
     const {resObj} = props;
-    const {name , cloudinaryImageId , cuisines , avgRating , costForTwo , rid} = resObj?.info;
-    // console.log(id)
-    
+    const {name , cloudinaryImageId , cuisines , avgRating , costForTwo , rid} = resObj?.info;    
     return (
     <div data-testid="rescard" className="bg-pink-100 rounded-lg p-5 m-5 w-80 shadow-lg hover:bg-pink-200" id="card">
         <div  id="restaraunt-image">
